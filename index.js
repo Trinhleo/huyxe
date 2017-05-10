@@ -9,7 +9,7 @@ app.listen(process.env.PORT||3000,function(){
   console.log("connect success!!!");
 });
 var mongoose=require('mongoose');
-mongoose.connect('process.ENV.MONGODB_URI');
+mongoose.connect('mongodb://heroku_94r0pdz9:pm7mv9um6dio4a99vbr821684o@ds163340.mlab.com:63340/heroku_94r0pdz9');
 
 
 var bankSchema=new mongoose.Schema({
