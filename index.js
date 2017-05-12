@@ -33,6 +33,23 @@ app.get('/',function(req,res){
   // res.json({user:'huy',pass:'xe'});
   res.send('thanhcong');
 })
+app.post('/tratien',function(req,res){
+  var request = {
+    soTK: req.body.soTK,
+    soTien: req.body.soTien
+  }
+  bank.findOneAndUpdate({soTK:123456789},{$inc:{soDU:-request.soTien}},function(err,data){
+    if(err){
+      res.send('1')
+    }
+  })
+  bank.findOneAndUpdate({soTK:request.soTK},{$inc:{soDU:request.soTien}},function(err,data){
+    if(err){
+      res.send('1');
+    }
+  });
+  res.send('0');
+})
 app.post('/api',function(req,res){
 
   var request = {
